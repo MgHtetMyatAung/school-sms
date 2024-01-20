@@ -1,0 +1,109 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Student {
+  id          String  @id @default(cuid())
+  name        String
+  father_name String
+  dob         String
+  email       String  @unique
+  phone       String
+  address     String
+  image       String?
+  nrc         String?
+  courseId    String?
+  course      Course? @relation(fields: [courseId], references: [id])
+  // Add other fields as needed
+}
+
+model Teacher {
+  id          String  @id @default(cuid())
+  name        String
+  father_name String
+  dob         String
+  email       String
+  phone       String
+  address     String
+  image       String?
+  courseId    String?
+  course      Course? @relation(fields: [courseId], references: [id])
+  // Add other fields as needed
+}
+
+model Course {
+  id            String         @id @default(cuid())
+  title         String
+  description   String
+  duration      String
+  price         String
+  batch         Int
+  startDate     String
+  image         String?
+  members       String?
+  classTypeId   String?
+  classType     ClassType?     @relation(fields: [classTypeId], references: [id])
+  subjects      Subject[]
+  students      Student[]
+  teachers      Teacher[]
+  announcements Announcement[]
+  // Add other fields as needed
+  FormRequest   FormRequest[]
+}
+
+model ClassType {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  courses     Course[]
+  // Add other fields as needed
+}
+
+model Subject {
+  id          String  @id @default(cuid())
+  title       String
+  description String
+  courseId    String?
+  course      Course? @relation(fields: [courseId], references: [id])
+  // Add other fields as needed
+}
+
+model Announcement {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  createdAt   DateTime @default(now())
+  Course      Course?  @relation(fields: [courseId], references: [id])
+  courseId    String?
+}
+
+model Extras {
+  id          String  @id @default(cuid())
+  slug        String  @unique
+  title       String
+  description String
+  image       String?
+}
+
+model FormRequest {
+  id          String   @id @default(cuid())
+  name        String
+  father_name String
+  dob         String
+  email       String
+  phone       String
+  address     String
+  image       String?
+  nrc         String?
+  createdAt   DateTime @default(now())
+  Course      Course?  @relation(fields: [courseId], references: [id])
+  courseId    String?
+}
