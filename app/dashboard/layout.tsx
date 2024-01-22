@@ -2,13 +2,20 @@ import Header from "@/components/layout/header/Header";
 import Sidebar from "@/components/layout/sidebar/Sidebar";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import { authOptions } from "@/lib/authOptions";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 import React from "react";
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession(authOptions);
+  if (!session?.user) {
+    redirect("/auth/sign-in");
+  }
   return (
     <section>
       <ThemeProvider

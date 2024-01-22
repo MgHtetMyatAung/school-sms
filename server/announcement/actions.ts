@@ -11,9 +11,9 @@ export async function createAnnouncement(formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
+    // await new Promise((resolve) => {
+    //   setTimeout(resolve, 1000);
+    // });
     await prisma.announcement.create({ data });
   } catch (error) {
     throw new Error("fail to create announcement");
@@ -31,9 +31,9 @@ export async function editAnnouncement(id: string, formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
+    // await new Promise((resolve) => {
+    //   setTimeout(resolve, 1000);
+    // });
     await prisma.announcement.update({ where: { id }, data });
   } catch (error) {
     throw new Error("fail to edit announcement");
@@ -45,9 +45,9 @@ export async function editAnnouncement(id: string, formData: FormData) {
 
 export async function deleteAnnouncement(id: string) {
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
+    // await new Promise((resolve) => {
+    //   setTimeout(resolve, 1000);
+    // });
     await prisma.announcement.delete({ where: { id } });
   } catch (error) {
     throw new Error("fail to delete announcement");

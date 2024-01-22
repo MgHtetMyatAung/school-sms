@@ -15,9 +15,6 @@ export async function createTeacher(formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
     await prisma.teacher.create({ data });
   } catch (error) {
     throw new Error("fail to create teacher");
@@ -39,9 +36,6 @@ export async function editTeacher(id: string, formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
     await prisma.teacher.update({ where: { id }, data });
   } catch (error) {
     throw new Error("fail to update teacher");
@@ -53,9 +47,6 @@ export async function editTeacher(id: string, formData: FormData) {
 
 export async function deleteTeacher(id: string) {
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
     await prisma.teacher.delete({ where: { id } });
   } catch (error) {
     throw new Error("fail to delete teacher");

@@ -12,9 +12,6 @@ export async function createExtraData(formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
     await prisma.extras.create({ data });
   } catch (error) {
     throw new Error("fail to create extra data");
@@ -33,9 +30,6 @@ export async function editExtraData(id: string, formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
     await prisma.extras.update({ where: { id }, data });
   } catch (error) {
     throw new Error("fail to edit extra data");
@@ -47,9 +41,6 @@ export async function editExtraData(id: string, formData: FormData) {
 
 export async function deleteExtraData(id: string) {
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
     await prisma.extras.delete({ where: { id } });
   } catch (error) {
     throw new Error("fail to delete extra data");

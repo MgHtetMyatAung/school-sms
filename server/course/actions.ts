@@ -16,9 +16,9 @@ export async function createCourse(formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
+    // await new Promise((resolve) => {
+    //   setTimeout(resolve, 1000);
+    // });
     await prisma.course.create({ data });
   } catch (error) {
     throw new Error("fail to create course");
@@ -41,9 +41,9 @@ export async function editCourse(id: string, formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
+    // await new Promise((resolve) => {
+    //   setTimeout(resolve, 1000);
+    // });
     await prisma.course.update({ where: { id }, data });
   } catch (error) {
     throw new Error("fail to update course");
@@ -55,9 +55,9 @@ export async function editCourse(id: string, formData: FormData) {
 
 export async function deleteCourse(id: string) {
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
+    // await new Promise((resolve) => {
+    //   setTimeout(resolve, 1000);
+    // });
     await prisma.course.delete({ where: { id } });
   } catch (error) {
     throw new Error("fail to delete course");

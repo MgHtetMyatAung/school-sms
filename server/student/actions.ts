@@ -18,9 +18,6 @@ export async function createStudent(formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
     await prisma.student.create({ data });
   } catch (error) {
     throw new Error("fail to create student");
@@ -44,9 +41,6 @@ export async function editStudent(id: string, formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
     await prisma.student.update({ where: { id }, data });
   } catch (error) {
     throw new Error("fail to create student");
@@ -58,9 +52,6 @@ export async function editStudent(id: string, formData: FormData) {
 
 export async function deleteStudent(studentId: string) {
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
     await prisma.student.delete({ where: { id: studentId } });
   } catch (error) {
     throw new Error("fail to delete student");

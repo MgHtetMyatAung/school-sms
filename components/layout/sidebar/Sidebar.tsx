@@ -3,6 +3,7 @@ import { sideBarItems } from "./sidebarItems";
 import NavItem from "./NavItem";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import SignOutButton from "@/components/actions/SignOutButton";
 
 export default function Sidebar() {
   return (
@@ -13,9 +14,7 @@ export default function Sidebar() {
         {sideBarItems.map((nav) => (
           <NavItem key={nav.id} nav={nav} />
         ))}
-        <Link href={"/"}>
-          <Button className=" absolute bottom-3 w-full">Log out</Button>
-        </Link>
+        <SignOutButton />
       </ul>
     </div>
   );

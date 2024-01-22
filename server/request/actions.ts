@@ -18,9 +18,6 @@ export async function createRequestAccess(dataObj: any) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
     await prisma.student.create({ data });
   } catch (error) {
     throw new Error("fail to access request");
@@ -44,9 +41,6 @@ export async function createRequest(formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
     await prisma.formRequest.create({ data });
   } catch (error) {
     throw new Error("fail to request course");
@@ -70,9 +64,6 @@ export async function editRequest(id: string, formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
     await prisma.formRequest.update({ where: { id }, data });
   } catch (error) {
     throw new Error("fail to edit request");
@@ -84,9 +75,6 @@ export async function editRequest(id: string, formData: FormData) {
 
 export async function deleteRequest(id: string) {
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
     await prisma.formRequest.delete({ where: { id } });
   } catch (error) {
     throw new Error("fail to delete request");

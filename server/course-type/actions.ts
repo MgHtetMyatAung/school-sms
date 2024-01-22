@@ -10,9 +10,9 @@ export async function createCourseType(formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
+    // await new Promise((resolve) => {
+    //   setTimeout(resolve, 1000);
+    // });
     await prisma.classType.create({ data });
   } catch (error) {
     throw new Error("fail to create course type");
@@ -29,9 +29,9 @@ export async function editCourseType(id: string, formData: FormData) {
   };
 
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
+    // await new Promise((resolve) => {
+    //   setTimeout(resolve, 1000);
+    // });
     await prisma.classType.update({ where: { id }, data });
   } catch (error) {
     throw new Error("fail to edit course type");
@@ -43,9 +43,9 @@ export async function editCourseType(id: string, formData: FormData) {
 
 export async function deleteCourseType(id: string) {
   try {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
+    // await new Promise((resolve) => {
+    //   setTimeout(resolve, 1000);
+    // });
     await prisma.classType.delete({ where: { id } });
   } catch (error) {
     throw new Error("fail to delete course type");
