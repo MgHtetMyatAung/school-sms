@@ -6,7 +6,7 @@ import React from "react";
 export default function NavItem({
   nav,
 }: {
-  nav: { name: string; link: string };
+  nav: { name: string; link: string; target?: string };
 }) {
   const pathname = usePathname();
   const router = useRouter();

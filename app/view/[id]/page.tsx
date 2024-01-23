@@ -33,6 +33,10 @@ export default async function CourseDetail({
           </div>
           {course?.id && <ClassType id={course?.classTypeId as string} />}
           <div className=" flex md:items-center flex-col md:flex-row">
+            <p className=" w-[150px] font-medium">Request Students</p>
+            <p className=" font-semibold text-gray-700">- {course?.members}</p>
+          </div>
+          <div className=" flex md:items-center flex-col md:flex-row">
             <p className=" w-[150px] font-medium">Duration</p>
             <p className=" font-semibold text-gray-700">- {course?.duration}</p>
           </div>
@@ -44,7 +48,7 @@ export default async function CourseDetail({
           </div>
           <div className=" flex md:items-center flex-col md:flex-row">
             <p className=" w-[150px] font-medium">Price</p>
-            <p className=" font-semibold text-gray-700">
+            <p className=" font-semibold text-blue-600">
               - {course?.price} MMK
             </p>
           </div>

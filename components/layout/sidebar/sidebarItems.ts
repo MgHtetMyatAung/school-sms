@@ -8,6 +8,6 @@ export const sideBarItems = [
   { id: 6, name: "Announcements", link: "/dashboard/announcements" },
   { id: 11, name: "Request", link: "/dashboard/requests" },
   { id: 10, name: "Extra Datas", link: "/dashboard/extras" },
-  { id: 9, name: "Frontend UI", link: "/view" },
+  { id: 9, name: "Frontend UI", link: "/view", target: "_blank" },
   { id: 7, name: "Settings", link: "/dashboard/settings" },
 ];
