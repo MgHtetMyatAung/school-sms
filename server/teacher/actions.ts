@@ -12,6 +12,8 @@ export async function createTeacher(formData: FormData) {
     phone: (formData.get("phone") as string) || "",
     address: (formData.get("address") as string) || "",
     courseId: (formData.get("courseId") as string) || null,
+    image: (formData.get("image") as string) || "",
+    position: (formData.get("position") as string) || "",
   };
 
   try {
@@ -33,6 +35,7 @@ export async function editTeacher(id: string, formData: FormData) {
     phone: (formData.get("phone") as string) || "",
     address: (formData.get("address") as string) || "",
     courseId: (formData.get("courseId") as string) || null,
+    position: (formData.get("position") as string) || "",
   };
 
   try {

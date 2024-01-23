@@ -9,7 +9,7 @@ export default async function Courses() {
   return (
     <div>
       <h1 className=" text-lg md:text-2xl mb-5 font-medium">Popular Courses</h1>
-      <div className=" grid lg:grid-cols-4 gap-3">
+      <div className=" grid md:grid-cols-2 lg:grid-cols-4 gap-3">
         {courses.map((course) => (
           <div className=" p-3 border rounded shadow-sm" key={course.id}>
             <div className=" relative w-full h-[180px] rounded overflow-hidden">

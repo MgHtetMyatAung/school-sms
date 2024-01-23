@@ -3,6 +3,7 @@ import Aboutus from "@/components/view/Aboutus";
 import AnnounceMents from "@/components/view/AnnounceMents";
 import Courses from "@/components/view/Courses";
 import Resource from "@/components/view/Resource";
+import Teachers from "@/components/view/Teachers";
 import React from "react";
 
 export const revalidate = 60;
@@ -41,6 +42,11 @@ export default function page() {
       <div className="">
         <div className=" container mx-auto py-10">
           <Courses />
+        </div>
+      </div>
+      <div className="bg-gray-100">
+        <div className=" container mx-auto py-10">
+          <Teachers />
         </div>
       </div>
     </main>

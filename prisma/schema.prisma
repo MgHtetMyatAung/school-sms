@@ -33,6 +33,7 @@ model Teacher {
   email       String
   phone       String
   address     String
+  position    String?
   image       String?
   courseId    String?
   course      Course? @relation(fields: [courseId], references: [id])

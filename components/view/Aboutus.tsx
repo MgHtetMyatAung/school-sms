@@ -9,7 +9,7 @@ export default async function Aboutus() {
   return (
     <div className=" py-10">
       <div className=" grid lg:grid-cols-5 gap-5 lg:gap-7">
-        <div className=" relative w-full h-[200px] lg:h-full grid-cols-1 lg:col-span-2 rounded-md overflow-hidden">
+        <div className=" relative w-full h-[200px] md:h-[300px] lg:h-full grid-cols-1 lg:col-span-2 rounded-md overflow-hidden">
           <Image
             src={aboutus?.image as string}
             alt="img"

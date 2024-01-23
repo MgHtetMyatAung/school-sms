@@ -97,6 +97,32 @@ export default async function CreateStudentPage() {
               </select>
             </div>
             <div className="">
+              <label className=" text-sm text-gray-600 mb-1" htmlFor="position">
+                Position
+              </label>
+              <input
+                type="text"
+                className=" block px-3 py-2 rounded-[10px] border focus:outline-none w-full"
+                name="position"
+                id="position"
+                placeholder="Teacher's position"
+                required
+              />
+            </div>
+            <div className="">
+              <label className=" text-sm text-gray-600 mb-1" htmlFor="image">
+                Image
+              </label>
+              <input
+                type="text"
+                className=" block px-3 py-2 rounded-[10px] border focus:outline-none w-full"
+                name="image"
+                id="image"
+                placeholder="Your image link"
+                required
+              />
+            </div>
+            <div className="">
               <label className=" text-sm text-gray-600 mb-1" htmlFor="address">
                 Address
               </label>
