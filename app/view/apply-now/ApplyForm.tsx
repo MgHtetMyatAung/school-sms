@@ -57,7 +57,7 @@ export default async function ApplyForm() {
               Email
             </label>
             <input
-              type="text"
+              type="email"
               className=" block px-3 py-2 rounded-[10px] border focus:outline-none w-full"
               name="email"
               id="email"

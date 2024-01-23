@@ -7,6 +7,8 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import React from "react";
 
+export const revalidate = 60;
+
 export default async function DashboardLayout({
   children,
 }: {

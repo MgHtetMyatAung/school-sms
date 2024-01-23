@@ -5,6 +5,8 @@ import Courses from "@/components/view/Courses";
 import Resource from "@/components/view/Resource";
 import React from "react";
 
+export const revalidate = 60;
+
 export default function page() {
   return (
     <main className="">
