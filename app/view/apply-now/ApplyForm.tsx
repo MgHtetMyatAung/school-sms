@@ -13,7 +13,7 @@ export default function ApplyForm({
   requests: number;
   limitText: string;
 }) {
-  const [select, setSelect] = useState("");
+  const [select, setSelect] = useState(courses[0].id || "");
   const [isLimit, setIsLimit] = useState(false);
   const [isShowBox, setIsShowBox] = useState(false);
 
@@ -23,6 +23,7 @@ export default function ApplyForm({
         (cu: { id: string; members: number; students: [] }) => cu.id === select
       );
       setIsLimit(cousrse.members === cousrse.students.length);
+      console.log(select);
     }
   }, [select, courses, requests]);
 
