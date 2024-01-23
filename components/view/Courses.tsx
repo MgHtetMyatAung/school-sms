@@ -2,7 +2,7 @@ import { cuttingString } from "@/lib/helperfuns";
 import { prisma } from "@/utils/prisma";
 import Image from "next/image";
 import React from "react";
-import { Button } from "../ui/button";
+import CreateButton from "@/components/actions/CreateButton";
 
 export default async function Courses() {
   const courses = await prisma.course.findMany();
@@ -29,7 +29,7 @@ export default async function Courses() {
                 <p>Price -</p>
                 <p className=" font-medium text-blue-500">{course.price} MMK</p>
               </div>
-              <Button>More Detail</Button>
+              <CreateButton name="More Detail" link={`/view/${course.id}`} />
             </div>
           </div>
         ))}
