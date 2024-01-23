@@ -102,18 +102,17 @@ export default async function CreateCoursePage() {
               </select>
             </div>
             <div className="">
-              <label className=" text-sm text-gray-600 mb-1" htmlFor="desc">
-                Description
+              <label className=" text-sm text-gray-600 mb-1" htmlFor="members">
+                Request Members
               </label>
-              <textarea
-                className=" block p-3 rounded-[10px] border focus:outline-none w-full"
-                name="desc"
-                id="desc"
-                placeholder="Course description"
+              <input
+                type="number"
+                className=" block px-3 py-2 rounded-[10px] border focus:outline-none w-full"
+                name="members"
+                id="members"
+                placeholder="Members No"
                 required
-                cols={30}
-                rows={3}
-              ></textarea>
+              />
             </div>
             <div className="">
               <label
@@ -130,6 +129,20 @@ export default async function CreateCoursePage() {
                 placeholder="Start Date"
                 required
               />
+            </div>
+            <div className="">
+              <label className=" text-sm text-gray-600 mb-1" htmlFor="desc">
+                Description
+              </label>
+              <textarea
+                className=" block p-3 rounded-[10px] border focus:outline-none w-full"
+                name="desc"
+                id="desc"
+                placeholder="Course description"
+                required
+                cols={30}
+                rows={3}
+              ></textarea>
             </div>
           </div>
           <SubmitBtn name="Add" className=" w-[150px] mt-5" />

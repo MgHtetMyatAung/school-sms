@@ -1,10 +1,31 @@
+"use client";
 import SubmitBtn from "@/components/actions/SubmitBtn";
+import { Button } from "@/components/ui/button";
 import { createRequest } from "@/server/request/actions";
-import { prisma } from "@/utils/prisma";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-export default async function ApplyForm() {
-  const courses = await prisma.course.findMany();
+export default function ApplyForm({
+  courses,
+  requests,
+  limitText,
+}: {
+  courses: any;
+  requests: number;
+  limitText: string;
+}) {
+  const [select, setSelect] = useState("");
+  const [isLimit, setIsLimit] = useState(false);
+  const [isShowBox, setIsShowBox] = useState(false);
+
+  useEffect(() => {
+    if (select) {
+      const cousrse = courses.find(
+        (cu: { id: string; members: number; students: [] }) => cu.id === select
+      );
+      setIsLimit(cousrse.members === cousrse.students.length);
+    }
+  }, [select, courses, requests]);
+
   return (
     <main className=" md:container mx-auto py-10">
       <div className=" md:w-[500px] mx-auto md:border rounded md:shadow-sm p-5 bg-white">
@@ -80,14 +101,16 @@ export default async function ApplyForm() {
           </div>
           <div className="">
             <label className=" text-sm text-gray-600 mb-1" htmlFor="courseId">
-              Choose Course
+              Choose Class
             </label>
             <select
               name="courseId"
               id="courseId"
               className=" block border p-2 rounded-md w-full focus:outline-none"
+              value={select}
+              onChange={(e) => setSelect(e.target.value)}
             >
-              {courses.map((course) => (
+              {courses?.map((course: { id: string; title: string }) => (
                 <option value={course.id} key={course.id}>
                   {course.title}
                 </option>
@@ -121,12 +144,30 @@ export default async function ApplyForm() {
               required
             />
           </div> */}
-          <SubmitBtn
-            name="Apply"
-            className=" w-[150px] bg-blue-600 hover:bg-blue-700"
-          />
+          {isLimit ? (
+            <Button
+              className=" w-[150px] bg-blue-600 hover:bg-blue-700"
+              type="button"
+              onClick={() => setIsShowBox(true)}
+            >
+              Apply
+            </Button>
+          ) : (
+            <SubmitBtn
+              name="Apply"
+              className=" w-[150px] bg-blue-600 hover:bg-blue-700"
+            />
+          )}
         </form>
       </div>
+      {isShowBox && (
+        <div className=" w-full h-screen fixed top-0 left-0 right-0 grid place-items-center bg-[#3333339d]">
+          <div className=" p-5 rounded shadow-sm border bg-white text-center mx-4">
+            <h3 className=" text-red-500 mb-5">{limitText}</h3>
+            <Button onClick={() => setIsShowBox(false)}>Close</Button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

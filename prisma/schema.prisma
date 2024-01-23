@@ -48,7 +48,7 @@ model Course {
   batch         Int
   startDate     String
   image         String?
-  members       String?
+  members       Int?
   classTypeId   String?
   classType     ClassType?     @relation(fields: [classTypeId], references: [id])
   subjects      Subject[]

@@ -13,6 +13,7 @@ export async function createCourse(formData: FormData) {
     price: (formData.get("price") as string) || "",
     classTypeId: (formData.get("typeId") as string) || "",
     startDate: (formData.get("start-date") as string) || "",
+    members: Number(formData.get("members")),
   };
 
   try {
@@ -38,6 +39,7 @@ export async function editCourse(id: string, formData: FormData) {
     price: (formData.get("price") as string) || "",
     classTypeId: (formData.get("typeId") as string) || "",
     startDate: (formData.get("start-date") as string) || "",
+    members: Number(formData.get("members")),
   };
 
   try {
