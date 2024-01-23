@@ -1,8 +1,18 @@
-import BarChart from "@/components/charts/BarChart";
-import ColumnChart from "@/components/charts/ColumnChart";
-import DonutChart from "@/components/charts/DonutChart";
 import { prisma } from "@/utils/prisma";
 import React from "react";
+import dynamic from "next/dynamic";
+
+const BarChart = dynamic(() => import("@/components/charts/BarChart"), {
+  ssr: false,
+});
+
+const ColumnChart = dynamic(() => import("@/components/charts/ColumnChart"), {
+  ssr: false,
+});
+
+const DonutChart = dynamic(() => import("@/components/charts/DonutChart"), {
+  ssr: false,
+});
 
 export default async function DashboardPage() {
   const courses = await prisma.course.findMany({
