@@ -1,8 +1,20 @@
 import GoBackButton from "@/components/actions/GoBackButton";
 import { formatDate } from "@/lib/helperfuns";
 import { prisma } from "@/utils/prisma";
+import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> => {
+  const course = await prisma.course.findUnique({ where: { id: params.id } });
+  return {
+    title: `${course?.title}`,
+  };
+};
 
 export default async function CourseDetail({
   params,

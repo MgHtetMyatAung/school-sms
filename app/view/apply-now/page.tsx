@@ -4,6 +4,11 @@ import { getExtraDatas } from "@/server/functions/functions";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { prisma } from "@/utils/prisma";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Apply Form",
+};
 
 export default async function ApplyNowPage({
   searchParams,
